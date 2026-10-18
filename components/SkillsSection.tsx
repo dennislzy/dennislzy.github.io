@@ -13,6 +13,7 @@ import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import StorageOutlinedIcon from "@mui/icons-material/StorageOutlined";
 import BuildCircleOutlinedIcon from "@mui/icons-material/BuildCircleOutlined";
 import { skillCategories, type SkillCategory } from "@/lib/resumeData";
+import { cardAccents, cardAccentVars, type CardAccent } from "@/theme/theme";
 import type { SvgIconComponent } from "@mui/icons-material";
 
 const iconMap: Record<SkillCategory["icon"], SvgIconComponent> = {
@@ -21,6 +22,14 @@ const iconMap: Record<SkillCategory["icon"], SvgIconComponent> = {
   ai: PsychologyOutlinedIcon,
   database: StorageOutlinedIcon,
   devops: BuildCircleOutlinedIcon,
+};
+
+const accentMap: Record<SkillCategory["icon"], CardAccent> = {
+  backend: cardAccents.teal,
+  frontend: cardAccents.sky,
+  ai: cardAccents.violet,
+  database: cardAccents.amber,
+  devops: cardAccents.rose,
 };
 
 export default function SkillsSection() {
@@ -43,12 +52,20 @@ export default function SkillsSection() {
             const Icon = iconMap[category.icon];
             return (
               <Grid key={category.id} size={{ xs: 12, sm: 6, md: 4 }}>
-                <Card variant="outlined" sx={{ height: "100%" }}>
+                <Card
+                  variant="outlined"
+                  sx={{ height: "100%", ...cardAccentVars(accentMap[category.icon]) }}
+                >
                   <CardContent>
                     <Stack direction="row" spacing={1.5} sx={{ alignItems: "center", mb: 2 }}>
                       <Avatar
                         variant="rounded"
-                        sx={{ bgcolor: "primary.main", width: 40, height: 40 }}
+                        sx={{
+                          width: 40,
+                          height: 40,
+                          background:
+                            "linear-gradient(135deg, var(--card-accent), var(--card-accent-end))",
+                        }}
                       >
                         <Icon fontSize="small" />
                       </Avatar>
@@ -56,7 +73,17 @@ export default function SkillsSection() {
                     </Stack>
                     <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: "wrap" }}>
                       {category.items.map((item) => (
-                        <Chip key={item} label={item} size="small" variant="outlined" />
+                        <Chip
+                          key={item}
+                          label={item}
+                          size="small"
+                          variant="outlined"
+                          sx={{
+                            bgcolor: "color-mix(in srgb, var(--card-accent) 12%, transparent)",
+                            color: "var(--card-accent-dark)",
+                            borderColor: "color-mix(in srgb, var(--card-accent) 35%, transparent)",
+                          }}
+                        />
                       ))}
                     </Stack>
                   </CardContent>

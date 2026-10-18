@@ -16,6 +16,7 @@ import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutlined";
 import TipsAndUpdatesOutlinedIcon from "@mui/icons-material/TipsAndUpdatesOutlined";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { projectItems } from "@/lib/resumeData";
+import { cardAccentList, cardAccentVars } from "@/theme/theme";
 
 export default function ProjectsSection() {
   return (
@@ -26,16 +27,21 @@ export default function ProjectsSection() {
         </Typography>
 
         <Grid container spacing={3}>
-          {projectItems.map((project) => {
+          {projectItems.map((project, index) => {
             const hasRealLink = project.githubUrl !== "#";
             return (
               <Grid key={project.name} size={{ xs: 12, md: 6 }}>
                 <Card
                   variant="outlined"
-                  sx={{ height: "100%", display: "flex", flexDirection: "column" }}
+                  sx={{
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    ...cardAccentVars(cardAccentList[index % cardAccentList.length]),
+                  }}
                 >
                   <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography variant="h6" sx={{ color: "primary.main" }}>
+                    <Typography variant="h6" sx={{ color: "var(--card-accent-dark)" }}>
                       {project.name}
                     </Typography>
                     <Typography variant="subtitle2" color="text.secondary" sx={{ mb: 1.5 }}>
@@ -49,7 +55,7 @@ export default function ProjectsSection() {
                       {project.role.map((item) => (
                         <ListItem key={item} disableGutters sx={{ py: 0.25 }}>
                           <ListItemIcon sx={{ minWidth: 24 }}>
-                            <CheckCircleOutlineIcon sx={{ fontSize: 16, color: "secondary.dark" }} />
+                            <CheckCircleOutlineIcon sx={{ fontSize: 16, color: "var(--card-accent)" }} />
                           </ListItemIcon>
                           <ListItemText
                             primary={item}
@@ -61,7 +67,16 @@ export default function ProjectsSection() {
 
                     <Stack direction="row" spacing={1} useFlexGap sx={{ flexWrap: "wrap", mb: 2 }}>
                       {project.tags.map((tag) => (
-                        <Chip key={tag} label={tag} size="small" />
+                        <Chip
+                          key={tag}
+                          label={tag}
+                          size="small"
+                          sx={{
+                            bgcolor: "color-mix(in srgb, var(--card-accent) 12%, transparent)",
+                            color: "var(--card-accent-dark)",
+                            borderColor: "color-mix(in srgb, var(--card-accent) 35%, transparent)",
+                          }}
+                        />
                       ))}
                     </Stack>
 
@@ -70,14 +85,14 @@ export default function ProjectsSection() {
                       spacing={1}
                       sx={{
                         alignItems: "flex-start",
-                        bgcolor: "background.default",
+                        bgcolor: "color-mix(in srgb, var(--card-accent) 10%, transparent)",
                         borderRadius: 2,
                         p: 1.5,
                       }}
                     >
                       <TipsAndUpdatesOutlinedIcon
                         fontSize="small"
-                        sx={{ color: "secondary.dark", mt: 0.25 }}
+                        sx={{ color: "var(--card-accent-dark)", mt: 0.25 }}
                       />
                       <Typography variant="body2" color="text.secondary">
                         {project.highlight}

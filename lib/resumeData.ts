@@ -41,7 +41,7 @@ export const skillCategories: SkillCategory[] = [
     id: "database",
     name: "資料庫",
     icon: "database",
-    items: ["MySQL", "MongoDB"],
+    items: ["MySQL"],
   },
   {
     id: "devops",
@@ -86,7 +86,7 @@ export const projectItems: ProjectItem[] = [
     name: "FinAid",
     subtitle: "社工智能個案管理系統",
     description:
-      "成大資管系產學合作專題，協助財務社工更有效率地服務弱勢個案，整合語音轉文字與 AI 補助搜尋。",
+      "輔仁大學資訊管理學系產學合作專題，協助財務社工更有效率地服務弱勢個案，整合語音轉文字與 AI 補助搜尋。",
     role: ["後端 API 開發（Spring Boot）", "AWS 部署", "資料庫設計", "AI 功能整合"],
     tags: ["Next.js", "Spring Boot", "FastAPI", "Whisper AI", "Docker", "AWS EC2"],
     highlight: "比較三種語音轉文字方案後選用 Whisper AI，準確度最高、成本最低（WER 8.6%）",
@@ -96,10 +96,14 @@ export const projectItems: ProjectItem[] = [
     name: "Smart CamPilot",
     subtitle: "智能營隊推薦與管理平台",
     description:
-      "輔仁大學產學合作專題，微服務架構的營隊管理平台，整合 AI 推薦與數據分析。",
-    role: ["後端複雜邏輯開發（Spring Boot）", "Data Analysis 模組"],
-    tags: ["Spring Boot", "MySQL", "MongoDB", "LangChain", "OpenAI", "Docker", "GitHub Actions"],
-    highlight: "微服務架構含 7 個獨立服務，CI/CD 支援並行測試與自動化部署",
+      "團隊採微服務架構打造營隊推薦管理平台（共 7 個獨立服務），整合 AI 推薦與數據分析功能。",
+    role: [
+      "後端核心邏輯開發（Spring Boot）",
+      "Data Analysis 服務：使用 LangChain + FastAPI 建構 Text-to-SQL 查詢功能，將使用者的自然語言問題轉換成 SQL 查詢語句撈取資料，再將結果餵給 LLM 生成分析結果",
+      "自行撰寫 Data Analysis 服務的 Dockerfile 與 docker-compose 設定",
+    ],
+    tags: ["Spring Boot", "Python", "FastAPI", "LangChain", "OpenAI", "SQL", "Docker"],
+    highlight: "Text-to-SQL 流程：自然語言問題 → 產生 SQL 撈取資料 → LLM 生成分析結果",
     githubUrl: "#",
   },
 ];
