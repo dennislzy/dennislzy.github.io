@@ -64,7 +64,7 @@ export const experienceItems: ExperienceItem[] = [
     role: "Software Engineering Intern",
     period: "2024.03 – 2025.03",
     bullets: [
-      "針對公司內部系統開發 Selenium 自動化測試",
+      "依據 BDD 開發規範,使用 Cucumber + Gherkin 語法搭配 Selenium WebDriver,撰寫公司內部系統的自動化測試案例",
       "撰寫 Postman 腳本進行 API 測試與驗證",
     ],
   },
