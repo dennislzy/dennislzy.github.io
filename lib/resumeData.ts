@@ -6,7 +6,7 @@ export const profile = {
     "輔仁大學資訊管理學系 — 學士",
   ],
   summary:
-    "具備 Spring Boot 後端開發與雲端部署經驗，曾參與多個產學合作專案，負責 API 開發、資料庫設計與 AI 功能整合。喜歡把複雜的系統拆解成清楚的服務，也樂於嘗試用 AI 技術解決實際問題。",
+    "具備 Spring Boot 後端開發與雲端部署經驗，曾參與產學合作專案，負責 API 開發、資料庫設計與 AI 功能整合。喜歡把複雜的系統拆解成清楚的服務，也樂於嘗試用 AI 技術解決實際問題。",
   githubUser: "dennislzy",
   email: "a0976278215@gmail.com",
 };
@@ -90,7 +90,7 @@ export const projectItems: ProjectItem[] = [
     role: ["後端 API 開發（Spring Boot）", "AWS 部署", "資料庫設計", "AI 功能整合"],
     tags: ["Next.js", "Spring Boot", "FastAPI", "Whisper AI", "Docker", "AWS EC2"],
     highlight: "比較三種語音轉文字方案後選用 Whisper AI，準確度最高、成本最低（WER 8.6%）",
-    githubUrl: "#",
+    githubUrl: "https://github.com/dennislzy/FinAid",
   },
   {
     name: "Smart CamPilot",
@@ -104,6 +104,6 @@ export const projectItems: ProjectItem[] = [
     ],
     tags: ["Spring Boot", "Python", "FastAPI", "LangChain", "OpenAI", "SQL", "Docker"],
     highlight: "Text-to-SQL 流程：自然語言問題 → 產生 SQL 撈取資料 → LLM 生成分析結果",
-    githubUrl: "#",
+    githubUrl: "https://github.com/CamPilottt/CamPilot",
   },
 ];
